@@ -1,4 +1,5 @@
 # ⚖️ Lawyer Portfolio Website  
+© 2024 John Doe, Attorney at Law. Developed with ❤️ by Sagar Mahajan.
 
 A **modern and responsive portfolio website** designed for a lawyer to showcase their expertise, achievements, and services. This website combines a **clean white theme** with smooth animations for a professional yet engaging user experience.  
 
