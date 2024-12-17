@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ServiceCard from '@/components/services/ServiceCard';
-import { services } from '@/lib/data/services';
+import ServiceCard from 'components/services/ServiceCard';
+import { services } from '../../lib/data/services';
 
 export default function ServicesPage() {
   return (

@@ -1,13 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { Milestone } from '@/lib/types';
 
-interface TimelineProps {
-  milestones: Milestone[];
-}
-
-export default function Timeline({ milestones }: TimelineProps) {
+export default function Timeline({ milestones }) {
   return (
     <div className="relative">
       <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200 hidden md:block" />

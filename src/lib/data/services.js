@@ -1,5 +1,5 @@
 import { Scale, Briefcase, FileText, Users, Building2, Gavel } from 'lucide-react';
-import type { Service } from '@/lib/types';
+import type { Service } from '../types';
 
 export const services: Service[] = [
   {

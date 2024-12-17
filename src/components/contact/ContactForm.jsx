@@ -8,7 +8,7 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     // Add form submission logic here
@@ -78,7 +78,7 @@ export default function ContactForm() {
             <textarea
               id="message"
               name="message"
-              rows={4}
+              rows="4"
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
             />

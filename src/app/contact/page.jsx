@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ContactForm from '@/components/contact/ContactForm';
-import Map from '@/components/contact/Map';
+import ContactForm from 'components/contact/ContactForm';
+import Map from 'components/contact/Map';
 
 export default function ContactPage() {
   return (

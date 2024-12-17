@@ -10,13 +10,17 @@ export default function About() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">About John Doe</h2>
+            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
+              About John Doe
+            </h2>
             <p className="text-lg text-gray-600 mb-6">
               With over 15 years of experience in various areas of law, John Doe has established himself
               as a trusted legal advisor for individuals and businesses alike.
@@ -34,6 +38,7 @@ export default function About() {
             </Link>
           </motion.div>
 
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

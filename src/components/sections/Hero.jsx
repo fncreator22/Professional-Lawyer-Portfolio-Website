@@ -7,9 +7,11 @@ import { ArrowRight } from 'lucide-react';
 export default function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Background Image */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3')] bg-cover bg-center opacity-10" />
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,6 +24,7 @@ export default function Hero() {
           </span>
         </motion.h1>
 
+        {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,6 +34,7 @@ export default function Hero() {
           Trusted legal expertise with a commitment to justice
         </motion.p>
 
+        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
