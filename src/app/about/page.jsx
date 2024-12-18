@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Timeline from 'components/about/Timeline';
-import { milestones } from '../../lib/data/milestones';
+import Timeline from '@/components/about/Timeline';
+import { milestones } from '@/lib/data/milestones';
 
 export default function AboutPage() {
   return (

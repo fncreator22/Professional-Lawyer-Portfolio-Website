@@ -1,7 +1,6 @@
 import { Scale, Briefcase, FileText, Users, Building2, Gavel } from 'lucide-react';
-import type { Service } from '../types';
 
-export const services: Service[] = [
+export const services = [
   {
     title: 'Family Law',
     description: 'Expert guidance in divorce, custody, and family matters with compassionate support.',

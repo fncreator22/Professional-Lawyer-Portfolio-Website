@@ -1,6 +1,5 @@
-import type { Milestone } from '../types';
-
-export const milestones: Milestone[] = [
+// milestones.js
+export const milestones = [
   {
     year: 2008,
     title: 'Started Legal Career',
