@@ -3,23 +3,60 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
+import emailjs from 'emailjs-com'; // Import Email.js
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [error, setError] = useState(''); // State to handle error messages
 
   useEffect(() => {
     setMounted(true); // Mark the component as mounted
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Add form submission logic here
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError(''); // Reset error before submission
+
+    // Email.js integration for form submission
+    try {
+      const response = await emailjs.send(
+        'service_slv7wbk', // Service ID from EmailJS
+        'template_ozymbfq', // Template ID from EmailJS
+        formData,
+        'knG1mQzXLyz7Z2tSt' // User ID from EmailJS
+      );
+
+      console.log('Message Sent', response);
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      }); // Reset form data after submission
+    } catch (error) {
+      console.log('Error Sending Message', error);
+      setIsSubmitting(false);
+      setError('Something went wrong. Please try again later.');
+    }
   };
 
   if (!mounted) return null; // Ensure the component only renders after mounting
@@ -40,6 +77,11 @@ export default function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
+          {error && (
+            <div className="text-red-600 text-sm mb-4">
+              {error}
+            </div>
+          )}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               Name
@@ -48,6 +90,8 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
+              value={formData.name}
+              onChange={handleChange}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
             />
@@ -61,6 +105,8 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
             />
@@ -74,6 +120,8 @@ export default function ContactForm() {
               type="tel"
               id="phone"
               name="phone"
+              value={formData.phone}
+              onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
             />
           </div>
@@ -85,6 +133,8 @@ export default function ContactForm() {
             <textarea
               id="message"
               name="message"
+              value={formData.message}
+              onChange={handleChange}
               rows="4"
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"

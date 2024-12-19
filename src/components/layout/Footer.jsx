@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} John Doe, Attorney at Law. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Sagar Mahajan, Developer. All rights reserved.</p>
         </div>
       </div>
     </footer>
