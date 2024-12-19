@@ -77,8 +77,8 @@ export default function Footer() {
               </p>
               <p className="flex items-center text-gray-400">
                 <Mail size={16} className="mr-2" />
-                <a href="mailto:contact@johndoe.law" className="hover:text-white">
-                  contact@johndoe.law
+                <a href="mailto:AdePatel@contact.law" className="hover:text-white">
+                AdePatel@contact.law
                 </a>
               </p>
             </div>

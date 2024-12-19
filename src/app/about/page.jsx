@@ -17,7 +17,7 @@ export default function AboutPage() {
           >
             <h1 className="text-4xl font-serif font-bold text-gray-900 mb-6">About Ade Patel</h1>
             <p className="text-lg text-gray-600 mb-6">
-              With over 15 years of experience in various areas of law, Aishwarya Patel has established himself
+              With over 15 years of experience in various areas of law, Ade Patel has established himself
               as a trusted legal advisor for individuals and businesses in India.
             </p>
             <p className="text-lg text-gray-600">

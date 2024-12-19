@@ -1,5 +1,5 @@
 # ⚖️ Lawyer Portfolio Website  
-© 2024 John Doe, Attorney at Law. Developed with ❤️ by Sagar Mahajan.
+© 2024 Ade Patel, Attorney at Law. Developed with ❤️ by Sagar Mahajan.
 
 A **modern and responsive portfolio website** designed for a lawyer to showcase their expertise, achievements, and services. This website combines a **clean white theme** with smooth animations for a professional yet engaging user experience.  
 
@@ -17,7 +17,7 @@ A **modern and responsive portfolio website** designed for a lawyer to showcase 
 ### 🖥️ Website Sections  
 1. **🏠 Landing Page (Home)**:  
    - 👋 **Hero Section**:  
-     - Professional introduction with name and title (e.g., "John Doe, Attorney at Law").  
+     - Professional introduction with name and title (e.g., "Ade Patel, Attorney at Law").  
      - Tagline: *"Justice. Integrity. Expertise."*  
      - 📌 Call-to-Action Buttons:  
        - "Book a Consultation"  
@@ -54,7 +54,7 @@ A **modern and responsive portfolio website** designed for a lawyer to showcase 
 6. **🔗 Footer**:  
    - 📍 Address, 📞 Phone number, ✉️ Email, and 🔗 Social media links.  
    - ⚖️ Quick navigation links.  
-   - © Copyright notice (e.g., "© 2024 John Doe, Attorney at Law").  
+   - © Copyright notice (e.g., "© 2024 Ade Patel, Attorney at Law").  
 
 ---
 
@@ -99,7 +99,6 @@ Run the development server:
 npm run dev
 Open in browser:
 Navigate to http://localhost:3000.
-https://heroic-dragon-909166.netlify.app/
 
 🚀 Deployment
 Build the project:

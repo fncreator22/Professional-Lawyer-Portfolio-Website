@@ -19,10 +19,10 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
-              About John Doe
+              About Ade Patel
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              With over 15 years of experience in various areas of law, John Doe has established himself
+              With over 15 years of experience in various areas of law, Ade Patel has established himself
               as a trusted legal advisor for individuals and businesses alike.
             </p>
             <p className="text-lg text-gray-600 mb-8">
@@ -48,7 +48,7 @@ export default function About() {
           >
             <Image
               src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3"
-              alt="John Doe"
+              alt="Ade Patel"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

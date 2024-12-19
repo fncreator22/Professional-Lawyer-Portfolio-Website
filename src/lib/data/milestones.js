@@ -1,4 +1,4 @@
-// milestones.js
+
 export const milestones = [
   {
     year: 2010,
@@ -13,7 +13,7 @@ export const milestones = [
   {
     year: 2017,
     title: 'Founded Own Practice',
-    description: 'Launched Aishwarya Patel & Associates, focusing on legal advisory, civil disputes, and corporate law in India.',
+    description: 'Launched Ade Patel & Associates, focusing on legal advisory, civil disputes, and corporate law in India.',
   },
   {
     year: 2019,
