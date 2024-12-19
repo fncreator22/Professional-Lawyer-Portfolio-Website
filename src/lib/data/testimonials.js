@@ -1,33 +1,32 @@
 export const testimonials = [
-    {
-      name: 'Jane Smith',
-      position: 'CEO, Acme Corp',
-      feedback: 'John Doe provided exceptional legal services during our merger. His expertise and professionalism made the entire process seamless. Highly recommend!',
-      image: 'https://randomuser.me/api/portraits/women/1.jpg',
-    },
-    {
-      name: 'Michael Johnson',
-      position: 'Entrepreneur',
-      feedback: 'As a startup owner, I needed guidance on several legal matters. John was not only knowledgeable but also genuinely cared about my business. His advice was invaluable.',
-      image: 'https://randomuser.me/api/portraits/men/1.jpg',
-    },
-    {
-      name: 'Sarah Lee',
-      position: 'Director of Legal Affairs, XYZ Enterprises',
-      feedback: 'Working with John Doe has been a great experience. His approach to handling complex cases with clarity and integrity is unmatched. He’s our go-to legal advisor!',
-      image: 'https://randomuser.me/api/portraits/women/2.jpg',
-    },
-    {
-      name: 'David King',
-      position: 'Real Estate Developer',
-      feedback: 'John’s expertise in real estate law has been a game-changer for my development projects. His advice on contracts and zoning laws has saved me both time and money.',
-      image: 'https://randomuser.me/api/portraits/men/2.jpg',
-    },
-    {
-      name: 'Emily Adams',
-      position: 'Client',
-      feedback: 'I had a complicated family law case, and John’s professionalism and support throughout the process were outstanding. I felt heard, and the outcome was favorable.',
-      image: 'https://randomuser.me/api/portraits/women/3.jpg',
-    },
-  ];
-  
+  {
+    name: 'Ade Patel',
+    position: 'CEO, Patel Industries',
+    feedback: 'Ade Patel provided exceptional legal services during our business expansion. His expertise in corporate law and professionalism ensured smooth operations throughout the process. Highly recommend!',
+    image: 'https://randomuser.me/api/portraits/women/1.jpg',
+  },
+  {
+    name: 'Rajesh Kumar',
+    position: 'Founder, Tech Innovations Pvt. Ltd.',
+    feedback: 'As a startup founder, I needed advice on intellectual property and contracts. Ade Patel’s insights were invaluable, and his approach gave me confidence in navigating the legal complexities of my business.',
+    image: 'https://randomuser.me/api/portraits/men/1.jpg',
+  },
+  {
+    name: 'Priya Sharma',
+    position: 'Director of Legal Affairs, GreenTech Solutions',
+    feedback: 'Working with Ade Patel has been a fantastic experience. His ability to handle complex legal challenges with clarity and integrity is unmatched. He’s our trusted legal advisor for all corporate matters!',
+    image: 'https://randomuser.me/api/portraits/women/2.jpg',
+  },
+  {
+    name: 'Vikram Singh',
+    position: 'Real Estate Investor',
+    feedback: 'Ade’s legal advice on property law and contracts has been invaluable in my real estate ventures. His knowledge of zoning laws and property disputes saved me both time and money.',
+    image: 'https://randomuser.me/api/portraits/men/2.jpg',
+  },
+  {
+    name: 'Neha Desai',
+    position: 'Client',
+    feedback: 'I had a challenging family law case, and Ade Patel’s guidance and support throughout the process were outstanding. He made sure I was heard and delivered a favorable result in my case.',
+    image: 'https://randomuser.me/api/portraits/women/3.jpg',
+  },
+];

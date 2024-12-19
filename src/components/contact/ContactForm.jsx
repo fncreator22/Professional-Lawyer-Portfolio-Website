@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
-import emailjs from 'emailjs-com'; // Import Email.js
+import emailjs from 'emailjs-com';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,53 +13,63 @@ export default function ContactForm() {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   });
-  const [error, setError] = useState(''); // State to handle error messages
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    setMounted(true); // Mark the component as mounted
+    setMounted(true);
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: '',
+    }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required.';
+    if (!formData.email.trim()) newErrors.email = 'Email is required.';
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = 'Invalid email format.';
+    if (formData.phone && !/^\d+$/.test(formData.phone))
+      newErrors.phone = 'Phone number must be numeric.';
+    if (!formData.message.trim()) newErrors.message = 'Message is required.';
+    return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setIsSubmitting(true);
-    setError(''); // Reset error before submission
-
-    // Email.js integration for form submission
     try {
-      const response = await emailjs.send(
-        'service_slv7wbk', // Service ID from EmailJS
-        'template_ozymbfq', // Template ID from EmailJS
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         formData,
-        'knG1mQzXLyz7Z2tSt' // User ID from EmailJS
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
       );
-
-      console.log('Message Sent', response);
-      setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-      }); // Reset form data after submission
     } catch (error) {
-      console.log('Error Sending Message', error);
+      console.error('Error sending email:', error);
+    } finally {
       setIsSubmitting(false);
-      setError('Something went wrong. Please try again later.');
     }
   };
 
-  if (!mounted) return null; // Ensure the component only renders after mounting
+  if (!mounted) return null;
 
   return (
     <motion.div
@@ -70,18 +80,16 @@ export default function ContactForm() {
     >
       {isSubmitted ? (
         <div className="text-center py-12">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">Thank You!</h3>
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            Thank You!
+          </h3>
           <p className="text-gray-600">
             We have received your message and will get back to you shortly.
           </p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
-          {error && (
-            <div className="text-red-600 text-sm mb-4">
-              {error}
-            </div>
-          )}
+          <h2 className="text-lg font-medium text-gray-800">Contact Information</h2>
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               Name
@@ -93,10 +101,18 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              aria-describedby={errors.name && 'name-error'}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 ${
+                errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-gray-900'
+              }`}
             />
+            {errors.name && (
+              <p id="name-error" className="text-red-500 text-sm mt-1">
+                {errors.name}
+              </p>
+            )}
           </div>
-          
+
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email
@@ -108,13 +124,21 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              aria-describedby={errors.email && 'email-error'}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 ${
+                errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-gray-900'
+              }`}
             />
+            {errors.email && (
+              <p id="email-error" className="text-red-500 text-sm mt-1">
+                {errors.email}
+              </p>
+            )}
           </div>
 
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-              Phone
+              Phone (Optional)
             </label>
             <input
               type="tel"
@@ -122,8 +146,16 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              aria-describedby={errors.phone && 'phone-error'}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 ${
+                errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-gray-900'
+              }`}
             />
+            {errors.phone && (
+              <p id="phone-error" className="text-red-500 text-sm mt-1">
+                {errors.phone}
+              </p>
+            )}
           </div>
 
           <div>
@@ -137,8 +169,16 @@ export default function ContactForm() {
               onChange={handleChange}
               rows="4"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              aria-describedby={errors.message && 'message-error'}
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 ${
+                errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-gray-900'
+              }`}
             />
+            {errors.message && (
+              <p id="message-error" className="text-red-500 text-sm mt-1">
+                {errors.message}
+              </p>
+            )}
           </div>
 
           <button

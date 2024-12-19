@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Branding */}
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-4">John Doe</h3>
+            <h3 className="text-2xl font-serif font-bold mb-4">Ade Patel</h3>
             <p className="text-gray-400">Attorney at Law</p>
             <div className="flex space-x-4 mt-4">
               <a href="#" aria-label="Facebook Profile" className="text-gray-400 hover:text-white hover:scale-110 transition-transform duration-200">

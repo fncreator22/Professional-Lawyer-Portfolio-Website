@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-serif font-bold">
-              John Doe
+            Ade Patel
             </Link>
           </div>
 

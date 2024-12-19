@@ -15,9 +15,7 @@ export default function Timeline({ milestones }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className={`flex flex-col md:flex-row gap-8 ${
-              index % 2 === 0 ? 'md:flex-row-reverse' : ''
-            }`}
+            className={`flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
           >
             <div className="flex-1 md:text-right">
               <div className="text-2xl font-bold text-gray-900 mb-2">{milestone.year}</div>

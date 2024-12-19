@@ -15,14 +15,13 @@ export default function AboutPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl font-serif font-bold text-gray-900 mb-6">About John Doe</h1>
+            <h1 className="text-4xl font-serif font-bold text-gray-900 mb-6">About Ade Patel</h1>
             <p className="text-lg text-gray-600 mb-6">
-              With over 15 years of experience in various areas of law, John Doe has established himself
-              as a trusted legal advisor for individuals and businesses alike.
+              With over 15 years of experience in various areas of law, Aishwarya Patel has established himself
+              as a trusted legal advisor for individuals and businesses in India.
             </p>
             <p className="text-lg text-gray-600">
-              His commitment to justice and client advocacy has earned him recognition among peers
-              and numerous accolades in the legal community.
+              His expertise in constitutional law, civil litigation, and family law has earned him recognition in the Indian legal community.
             </p>
           </motion.div>
 
@@ -34,9 +33,9 @@ export default function AboutPage() {
           >
             <Image
               src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3"
-              alt="John Doe"
+              alt="Aishwarya Patel"
               fill
-              className="object-cover"
+              className="Ade Patel"
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
             />

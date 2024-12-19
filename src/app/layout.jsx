@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'John Doe - Attorney at Law',
+  title: 'Ade Patel - Attorney at Law',
   description: 'Professional legal services with a commitment to justice',
 };
 
