@@ -37,6 +37,7 @@ export default function ContactForm() {
     // Email.js integration for form submission
     try {
       const response = await emailjs.send(
+        
         'service_slv7wbk', // Service ID from EmailJS
         'template_ozymbfq', // Template ID from EmailJS
         formData,
