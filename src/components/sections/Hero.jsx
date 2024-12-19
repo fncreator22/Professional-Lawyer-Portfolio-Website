@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6"
         >
-          John Doe
+          Ade Patel
           <span className="block text-xl md:text-2xl font-sans font-normal mt-2 text-gray-600">
             Attorney at Law
           </span>

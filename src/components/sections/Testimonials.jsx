@@ -1,52 +1,90 @@
-'use client'
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react'; // Import Swiper components
-import 'swiper/css'; // Import basic Swiper styles
-import 'swiper/css/pagination'; // Import pagination styles if used
-import 'swiper/css/navigation'; // Import navigation styles if used
+'use client';
 
-export default function Testimonials({ testimonials }) {
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+
+const testimonials = [
+  {
+    quote: "Ade Patel's expertise in constitutional and civil law helped us resolve a long-standing family dispute with great efficiency and understanding.",
+    author: "Ramesh Kumar",
+    title: "Business Owner"
+  },
+  {
+    quote: "Highly dedicated and professional. They took the time to understand our needs and delivered excellent results in our corporate legal matters.",
+    author: "Priya Sharma",
+    title: "Founder, GreenTech Solutions"
+  },
+  {
+    quote: "From start to finish, Ade Patel and his team provided expert guidance in our property-related case, ensuring all legalities were handled smoothly.",
+    author: "Vikram Singh",
+    title: "Property Investor"
+  }
+];
+
+export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prev = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">What Our Clients Say</h2>
-        
-        {/* Swiper container */}
-        <Swiper
-          spaceBetween={30} // Space between slides
-          slidesPerView={1} // Number of slides to show at once (1 for mobile)
-          breakpoints={{
-            640: {
-              slidesPerView: 2, // For tablets and larger screens
-            },
-            1024: {
-              slidesPerView: 3, // For desktops and larger screens
-            },
-          }}
-          loop={true} // Infinite loop effect
-          autoplay={{
-            delay: 2500, // Delay between each slide
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true, // Enable pagination controls
-          }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
-              <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-24 h-24 rounded-full object-cover mb-4"
-                />
-                <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
-                <p className="text-sm text-gray-600">{testimonial.position}</p>
-                <p className="mt-4 text-gray-700 text-center">{testimonial.feedback}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+            Client Testimonials
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Hear what our clients in India have to say about our legal services.
+          </p>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <Quote className="w-12 h-12 mx-auto mb-8 text-gray-400" />
+            <blockquote className="text-2xl text-gray-900 mb-8">
+              "{testimonials[currentIndex].quote}"
+            </blockquote>
+            <div className="font-semibold text-gray-900">
+              {testimonials[currentIndex].author}
+            </div>
+            <div className="text-gray-600">
+              {testimonials[currentIndex].title}
+            </div>
+          </motion.div>
+
+          <div className="flex justify-center mt-8 space-x-4">
+            <button
+              onClick={prev}
+              className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={next}
+              className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
