@@ -3,7 +3,7 @@
 
 A **modern and responsive portfolio website** designed for a lawyer to showcase their expertise, achievements, and services. This website combines a **clean white theme** with smooth animations for a professional yet engaging user experience.  
 
-🌐 **[Live Demo](https://lawer-protfolio-service-909166.netlify.app/)**  
+🌐 **[Live Demo](https://professional-lawyer-portfolio-website.netlify.app/)**  
 
 ---
 
